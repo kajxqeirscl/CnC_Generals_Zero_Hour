@@ -70,6 +70,7 @@ class DieModule;
 class DieModuleInterface;
 class ExitInterface;
 class ExperienceTracker;
+class NXPTracker;
 class FiringTracker;
 class Module;
 class PartitionData;
@@ -216,8 +217,11 @@ public:
 
 	void scoreTheKill( const Object *victim );						///< I just killed this object.  
 	void onVeterancyLevelChanged( VeterancyLevel oldLevel, VeterancyLevel newLevel );	///< I just achieved this level right this moment
+	void onNXPLevelChanged(Int oldLevel, Int newLevel);	///< I just achieved this level right this moment
 	ExperienceTracker* getExperienceTracker() {return m_experienceTracker;}
+	NXPTracker* getNXPTracker() { return m_NXPTracker; }
 	const ExperienceTracker* getExperienceTracker() const {return m_experienceTracker;}
+	const NXPTracker* getNXPTracker() const { return m_NXPTracker; }
 	VeterancyLevel getVeterancyLevel() const;
 
 	inline const AsciiString& getName() const { return m_name; }
@@ -696,6 +700,7 @@ private:
 	PartitionData*								m_partitionData;	///< our PartitionData
 	RadarObject*									m_radarData;				///< radar data
 	ExperienceTracker*						m_experienceTracker;	///< Manages experience, gaining levels, and value when killed
+	NXPTracker* m_NXPTracker;	///< Manages experience, gaining levels, and value when killed
 
 	Object*												m_containedBy;					/**< an object can only be contained by at most one
 																	other object, this is that object (if present) */

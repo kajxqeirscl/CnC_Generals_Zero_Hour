@@ -58,6 +58,7 @@
 #include "GameLogic/AI.h"
 #include "GameLogic/AIPathfind.h"
 #include "GameLogic/ExperienceTracker.h"
+#include "GameLogic/NXPTracker.h"
 #include "GameLogic/FiringTracker.h"
 #include "GameLogic/GameLogic.h"
 #include "GameLogic/Locomotor.h"
@@ -190,6 +191,7 @@ Object::Object( const ThingTemplate *tt, ObjectStatusBits statusBits, Team *team
 	m_prev(NULL),
 	m_team(NULL),
 	m_experienceTracker(NULL),
+	m_NXPTracker(NULL),
 	m_firingTracker(NULL),
 	m_repulsorHelper(NULL),
 	m_smcHelper(NULL),
@@ -398,10 +400,12 @@ Object::Object( const ThingTemplate *tt, ObjectStatusBits statusBits, Team *team
 
 	// allocate experience tracker
 	m_experienceTracker = newInstance(ExperienceTracker)(this);
+	m_NXPTracker = newInstance(NXPTracker)(this);
 
 	// If a valid team has been assigned me, then I have a Player I can ask about my starting level
 	const Player* controller = getControllingPlayer();
 	m_experienceTracker->setVeterancyLevel( controller->getProductionVeterancyLevel( getTemplate()->getName() ) );
+	m_NXPTracker->setNXPLevel(controller->getProductionVeterancyLevel(getTemplate()->getName()));
 
 	/// allow for inter-Module resolution
 	for (BehaviorModule** b = m_behaviors; *b; ++b)
@@ -579,6 +583,11 @@ Object::~Object()
 		m_experienceTracker->deleteInstance();
 
 	m_experienceTracker = NULL;
+
+	if (m_NXPTracker)
+		m_NXPTracker->deleteInstance();
+
+	m_NXPTracker = NULL;
 
 	// we don't need to delete these, there were deleted on the m_behaviors list
 	m_firingTracker = NULL;
@@ -2664,6 +2673,15 @@ void Object::scoreTheKill( const Object *victim )
 			getExperienceTracker()->addExperiencePoints( experienceValue );
 		}
 	}
+	if (m_NXPTracker && m_NXPTracker->isAcceptingNXP())
+	{
+		// srj sez: per dustin, no experience (et al) for killing things under construction.
+		if (!victim->testStatus(OBJECT_STATUS_UNDER_CONSTRUCTION))
+		{
+			Int NXPValue = victim->getNXPTracker()->getNXPValue(this);
+			getNXPTracker()->addNXP(NXPValue);
+		}
+	}
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -2840,6 +2858,86 @@ void Object::onVeterancyLevelChanged( VeterancyLevel oldLevel, VeterancyLevel ne
 		AudioEventRTS soundToPlay = TheAudio->getMiscAudio()->m_unitPromoted;	
 		soundToPlay.setObjectID( getID() );
 		TheAudio->addAudioEvent( &soundToPlay );
+	}
+
+}
+
+//-------------------------------------------------------------------------------------------------
+void Object::onNXPLevelChanged(Int oldLevel, Int newLevel)
+{
+	updateUpgradeModules();
+
+	const UpgradeTemplate* up = TheUpgradeCenter->findVeterancyUpgrade(LEVEL_HEROIC);
+	if (up)
+		giveUpgrade(up);
+
+	BodyModuleInterface* body = getBodyModule();
+	if (body)
+		body->onVeterancyLevelChanged(LEVEL_ELITE, LEVEL_HEROIC);
+
+
+	Bool hideAnimationForStealth = (!isLocallyControlled() && testStatus(OBJECT_STATUS_STEALTHED));
+
+	Bool doAnimation = (!hideAnimationForStealth
+		&& (newLevel > oldLevel)
+		&& (!isKindOf(KINDOF_IGNORED_IN_GUI))); //First, we plan to do the animation if the level went up
+
+	switch (LEVEL_HEROIC)
+	{
+	case LEVEL_REGULAR:
+		clearWeaponSetFlag(WEAPONSET_VETERAN);
+		clearWeaponSetFlag(WEAPONSET_ELITE);
+		clearWeaponSetFlag(WEAPONSET_HERO);
+		clearWeaponBonusCondition(WEAPONBONUSCONDITION_VETERAN);
+		clearWeaponBonusCondition(WEAPONBONUSCONDITION_ELITE);
+		clearWeaponBonusCondition(WEAPONBONUSCONDITION_HERO);
+		doAnimation = FALSE;//... but not if somehow up to Regular
+		break;
+	case LEVEL_VETERAN:
+		setWeaponSetFlag(WEAPONSET_VETERAN);
+		clearWeaponSetFlag(WEAPONSET_ELITE);
+		clearWeaponSetFlag(WEAPONSET_HERO);
+		setWeaponBonusCondition(WEAPONBONUSCONDITION_VETERAN);
+		clearWeaponBonusCondition(WEAPONBONUSCONDITION_ELITE);
+		clearWeaponBonusCondition(WEAPONBONUSCONDITION_HERO);
+		break;
+	case LEVEL_ELITE:
+		clearWeaponSetFlag(WEAPONSET_VETERAN);
+		setWeaponSetFlag(WEAPONSET_ELITE);
+		clearWeaponSetFlag(WEAPONSET_HERO);
+		clearWeaponBonusCondition(WEAPONBONUSCONDITION_VETERAN);
+		setWeaponBonusCondition(WEAPONBONUSCONDITION_ELITE);
+		clearWeaponBonusCondition(WEAPONBONUSCONDITION_HERO);
+		break;
+	case LEVEL_HEROIC:
+		clearWeaponSetFlag(WEAPONSET_VETERAN);
+		clearWeaponSetFlag(WEAPONSET_ELITE);
+		setWeaponSetFlag(WEAPONSET_HERO);
+		clearWeaponBonusCondition(WEAPONBONUSCONDITION_VETERAN);
+		clearWeaponBonusCondition(WEAPONBONUSCONDITION_ELITE);
+		setWeaponBonusCondition(WEAPONBONUSCONDITION_HERO);
+		break;
+	}
+
+	if (doAnimation && TheGameLogic->getDrawIconUI())
+	{
+		if (TheAnim2DCollection && TheGlobalData->m_levelGainAnimationName.isEmpty() == FALSE)
+		{
+			Anim2DTemplate* animTemplate = TheAnim2DCollection->findTemplate(TheGlobalData->m_levelGainAnimationName);
+
+			Coord3D pos = *getPosition();
+			pos.add(&m_healthBoxOffset);
+
+			TheInGameUI->addWorldAnimation(animTemplate,
+				&pos,
+				WORLD_ANIM_FADE_ON_EXPIRE,
+				TheGlobalData->m_levelGainAnimationDisplayTimeInSeconds,
+				TheGlobalData->m_levelGainAnimationZRisePerSecond);
+		}
+
+		AudioEventRTS soundToPlay = TheAudio->getMiscAudio()->m_unitPromoted;
+		soundToPlay.setObjectID(getID());
+		TheAudio->addAudioEvent(&soundToPlay);
 	}
 
 }
@@ -3159,6 +3257,15 @@ void Object::updateObjValuesFromMapProperties(Dict* properties)
 		if (m_experienceTracker && m_experienceTracker->isTrainable())
 		{
 			m_experienceTracker->setVeterancyLevel((VeterancyLevel)valInt);
+		}
+	}
+
+	// set the NXP level
+	valInt = properties->getInt(TheKey_objectVeterancy, &exists);
+	if (exists) {
+		if (m_NXPTracker && m_NXPTracker->isTrainable())
+		{
+			m_NXPTracker->setNXPLevel(valInt);
 		}
 	}
 
