@@ -2637,15 +2637,15 @@ void Object::scoreTheKill( const Object *victim )
 		victimController->getScoreKeeper()->addObjectLost(victim);
 	}
 
-	Relationship r = getRelationship(victim);
-	if (r != ENEMIES)
-		return;
+	//Relationship r = getRelationship(victim);
+	//if (r != ENEMIES)
+	//	return;
 
 	// Don't count kills that I do on my own buildings or units, cause thats just silly.
-	if (controller == victimController)
-	{
-		return;
-	}
+	//if (controller == victimController)
+	//{
+	//	return;
+	//}
 
 	if (controller)
 	{

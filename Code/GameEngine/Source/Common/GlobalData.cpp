@@ -564,7 +564,7 @@ GlobalData::GlobalData()
 	m_debugCashValueMap = FALSE;
 	m_maxDebugValue = 10000;
 	m_debugCashValueMapTileDuration = LOGICFRAMES_PER_SECOND; // Changed By Sadullah Nader
-	m_debugIgnoreAsserts = TRUE;
+	m_debugIgnoreAsserts = FALSE;//TRUE;
 	m_debugIgnoreStackTrace = FALSE;
 	m_vTune = false;
 	m_checkForLeaks = TRUE;

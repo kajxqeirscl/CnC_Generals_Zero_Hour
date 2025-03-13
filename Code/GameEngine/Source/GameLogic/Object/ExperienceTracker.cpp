@@ -61,8 +61,8 @@ ExperienceTracker::~ExperienceTracker()
 Int ExperienceTracker::getExperienceValue( const Object* killer ) const
 {
 	// No experience for killing an ally, cheater.
-	if( killer->getRelationship( m_parent ) == ALLIES )
-		return 0;
+	//if( killer->getRelationship( m_parent ) == ALLIES )
+	//	return 0;
 
 	return m_parent->getTemplate()->getExperienceValue(m_currentLevel);
 }
