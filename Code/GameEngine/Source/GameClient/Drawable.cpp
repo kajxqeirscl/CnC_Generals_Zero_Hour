@@ -2288,9 +2288,6 @@ static Bool computeHealthRegion( const Drawable *draw, IRegion2D& region )
 
 Bool Drawable::drawsAnyUIText( void )
 {
-	if (!isSelected()) 
-		return FALSE;
-
 	const Object *obj = getObject();
 	if ( !obj || !obj->isLocallyControlled() )  
 		return FALSE;
@@ -2301,6 +2298,9 @@ Bool Drawable::drawsAnyUIText( void )
 
 	if (NXPNum > 0)
 		return TRUE;
+
+	if (!isSelected())
+		return FALSE;
 
 	if (groupNum > NO_HOTKEY_SQUAD && groupNum < NUM_HOTKEY_SQUADS ) 
 		return TRUE;
@@ -2691,7 +2691,7 @@ void Drawable::drawUIText()
 
 	Color color = TheDrawGroupInfo->m_usePlayerColor ? owner->getPlayerColor() : TheDrawGroupInfo->m_colorForText;
 
-	if (groupNum > NO_HOTKEY_SQUAD && groupNum < NUM_HOTKEY_SQUADS ) 
+	if (groupNum > NO_HOTKEY_SQUAD && groupNum < NUM_HOTKEY_SQUADS && isSelected())
 	{
 		Int xPos = healthBarRegion->lo.x;
 		Int yPos = healthBarRegion->lo.y;
@@ -2759,7 +2759,7 @@ void Drawable::drawUIText()
 
 
 
-	if ( obj->getFormationID() != NO_FORMATION_ID )
+	if ( obj->getFormationID() != NO_FORMATION_ID && isSelected())
 	{
 		//draw an F, here
 		Coord3D p;
