@@ -2688,6 +2688,7 @@ void Drawable::drawUIText()
 	Player *owner = obj->getControllingPlayer();
 	Int groupNum = owner->getSquadNumberForObject(obj);
 	Int NXPNum = obj->getNXPTracker()->getCurrentNXP();
+	Int NXPLevel = obj->getNXPTracker()->getNXPLevel();
 
 	Color color = TheDrawGroupInfo->m_usePlayerColor ? owner->getPlayerColor() : TheDrawGroupInfo->m_colorForText;
 
@@ -2737,7 +2738,9 @@ void Drawable::drawUIText()
 
 		// Convert the number to a string
 		std::string numStr = std::to_string(NXPNum);
+		std::string numStrLevel = std::to_string(NXPLevel);
 		int digitSpacing = 10; // Adjust spacing as needed
+		int newXPos = xPos;
 
 		for (char digit : numStr) {
 			// Convert digit to integer
@@ -2747,13 +2750,32 @@ void Drawable::drawUIText()
 			auto numeralString = TheDisplayStringManager->getGroupNumeralString(digitValue);
 
 			// Draw each digit at an adjusted position
-			numeralString->draw(xPos, yPos, color,
+			numeralString->draw(newXPos, yPos, color,
 				TheDrawGroupInfo->m_colorForTextDropShadow,
 				TheDrawGroupInfo->m_dropShadowOffsetX,
 				TheDrawGroupInfo->m_dropShadowOffsetY);
 
 			// Move xPos for the next digit
-			xPos += digitSpacing;
+			newXPos += digitSpacing;
+		}
+
+		newXPos = xPos;
+
+		for (char digit : numStrLevel) {
+			// Convert digit to integer
+			int digitValue = digit - '0';
+
+			// Get the numeral string for the individual digit
+			auto numeralString = TheDisplayStringManager->getGroupNumeralString(digitValue);
+
+			// Draw each digit at an adjusted position
+			numeralString->draw(newXPos, yPos-digitSpacing, color,
+				TheDrawGroupInfo->m_colorForTextDropShadow,
+				TheDrawGroupInfo->m_dropShadowOffsetX,
+				TheDrawGroupInfo->m_dropShadowOffsetY);
+
+			// Move xPos for the next digit
+			newXPos += digitSpacing;
 		}
 	}
 

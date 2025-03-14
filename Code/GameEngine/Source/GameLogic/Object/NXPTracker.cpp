@@ -182,7 +182,7 @@ void NXPTracker::addNXP(Int experienceGain, Bool canScaleForBonus)
 		levelIndex++;
 	}
 
-	m_currentLevel = levelIndex;
+	m_currentLevel = levelIndex-1;
 
 	if (oldLevel != m_currentLevel)
 	{
@@ -220,7 +220,7 @@ void NXPTracker::setNXPAndLevel(Int experienceIn)
 		levelIndex++;
 	}
 
-	m_currentLevel = levelIndex;
+	m_currentLevel = levelIndex-1;
 
 	if (oldLevel != m_currentLevel)
 	{
