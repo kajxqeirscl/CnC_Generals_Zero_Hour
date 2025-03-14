@@ -1,0 +1,776 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Run/Generals_debug.exe"
+		},
+		{
+			"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Run/Generals_debug.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_directories",
+			"target_link_libraries",
+			"target_compile_options",
+			"target_compile_definitions",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 220,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 141,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 118,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 88,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 57,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "/Od"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "/MDd"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "/W3"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "BROWSER_DEBUG"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "_DEBUG"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "_WINDOWS"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "__PLACEMENT_VEC_NEW_INLINE"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/GameRenderer"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Bink/include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/DX90SDK/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/Miles6/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/GameEngine/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/GameEngineDevice/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WWLib"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WWMath"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WWDebug"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WWSaveLoad"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WW3D2"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Include/Granny"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "/Od"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "/MDd"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "/W3"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "BROWSER_DEBUG"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "_DEBUG"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "_WINDOWS"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "__PLACEMENT_VEC_NEW_INLINE"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/GameRenderer"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Bink/include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/DX90SDK/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/Miles6/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/GameEngine/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/GameEngineDevice/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WWLib"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WWMath"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WWDebug"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WWSaveLoad"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WW3D2"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Include/Granny"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				3
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-DWIN32 -D_DEBUG"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "BROWSER_DEBUG"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "_DEBUG"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "_WINDOWS"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "__PLACEMENT_VEC_NEW_INLINE"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/GameRenderer"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Bink/include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/DX90SDK/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/Miles6/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/GameEngine/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/GameEngineDevice/Include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WWLib"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WWMath"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WWDebug"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WWSaveLoad"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Source/WWVegas/WW3D2"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Libraries/Include/Granny"
+				}
+			],
+			"language" : "RC",
+			"sourceIndexes" : 
+			[
+				4
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "GameEngine::@3f1430db303f85cff844"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "GameEngineDevice::@b5bf661acaf2bcda6841"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "GameRenderer::@e71774a1c47f01feb3dd"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "Compression::@94c6c6d57acc3b4ff305"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "WWDebug::@03917fa1d891aec73558"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "WWDownload::@136554194a27cdf33128"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "ww3d2::@7a9b64e938c31da0d22e"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "wwsaveload::@4c4f44dbb9ca2528b35e"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "wwmath::@d09afc813e20f197e03b"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "wwlib::@22145f2b52c0917150eb"
+		}
+	],
+	"id" : "RTS::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:windows",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Libraries\\DX90SDK\\Lib\\x64\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Libraries\\d3d9on12\\bin\\src\\Release\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Libraries\\Source\\GameSpy\\bin\\x64\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Libraries\\OpenAL\\bin\\x64\\RelWithDebInfo\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "user32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "gdi32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "shell32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "d3d9.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "d3d9on12.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "d3d12.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "Shcore.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "openal32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "dxguid.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "dinput8.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "odbc32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "odbccp32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "d3dx9.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "dxerr.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "winmm.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "vfw32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "dsound.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "wsock32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "imm32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "wininet.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "brigades/RelWithDebInfo/usbrigades.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "Chat/RelWithDebInfo/uschat.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "common/RelWithDebInfo/uscommon.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "Direct2Game/RelWithDebInfo/usd2g.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "gcdkey/RelWithDebInfo/uscdkey.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "ghttp/RelWithDebInfo/ushttp.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "GP/RelWithDebInfo/usgp.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "gstats/RelWithDebInfo/usstats.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "gt2/RelWithDebInfo/usgt2.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "natneg/RelWithDebInfo/usnatneg.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "Peer/RelWithDebInfo/uspeer.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "pinger/RelWithDebInfo/uspinger.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "pt/RelWithDebInfo/uspt.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "qr2/RelWithDebInfo/usqr2.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "sake/RelWithDebInfo/ussake.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "sc/RelWithDebInfo/ussc.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "serverbrowsing/RelWithDebInfo/usserverbrowsing.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "sharedDll/RelWithDebInfo/UniSpySDK.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "Voice2/RelWithDebInfo/usvoice2.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "Voice2/libgsm/RelWithDebInfo/gsm.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "Voice2/libspeex/RelWithDebInfo/speex.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "webservices/RelWithDebInfo/uswebservice.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "GameEngine\\GameEngineDebug.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "GameEngineDevice\\GameEngineDeviceDebug_x64.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "GameRenderer\\GameRenderer.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "Libraries\\Source\\Compression\\Compression.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "Libraries\\Source\\WWVegas\\WW3D2\\ww3d2.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "Libraries\\Source\\WWVegas\\WWDebug\\WWDebugDebug_x64.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "lib\\WWDownloadDebug_x64.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "lib\\WWLibdebug_x64.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "lib\\WWMathDebug_x64.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "lib\\WWSaveLoadDebug_x64.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "RTS",
+	"nameOnDisk" : "Generals_debug.exe",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				4
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Libraries/Bink/include/bink.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Libraries/Bink/include/cleanup.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Libraries/Bink/include/miles.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Main/WinMain.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "Main/RTS.RC",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "EXECUTABLE"
+}

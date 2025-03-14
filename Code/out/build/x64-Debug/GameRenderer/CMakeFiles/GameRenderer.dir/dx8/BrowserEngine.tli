@@ -1,0 +1,265 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.39.33519.0 (5562f4f8).
+//
+// D:\zh mods\generals next gen\CnC_Generals_Zero_Hour\Code\out\build\x64-Debug\GameRenderer\CMakeFiles\GameRenderer.dir\dx8\BrowserEngine.tli
+//
+// Wrapper implementations for Win32 type library ..\..\..\..\..\run\BrowserEngine.DLL
+// compiler-generated file - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface IFEBrowserEngine2 wrapper method implementations
+//
+
+inline HRESULT IFEBrowserEngine2::Initialize ( long * d3d_device ) {
+    HRESULT _hr = raw_Initialize(d3d_device);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFEBrowserEngine2::Shutdown ( ) {
+    HRESULT _hr = raw_Shutdown();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFEBrowserEngine2::CreateBrowser ( _bstr_t browsername, _bstr_t url, long parentwindow, int x, int y, int w, int h, long option_bitmask, IDispatch * gameinterface ) {
+    HRESULT _hr = raw_CreateBrowser(browsername, url, parentwindow, x, y, w, h, option_bitmask, gameinterface);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFEBrowserEngine2::DestroyBrowser ( _bstr_t browsername ) {
+    HRESULT _hr = raw_DestroyBrowser(browsername);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFEBrowserEngine2::Navigate ( _bstr_t browsername, _bstr_t url ) {
+    HRESULT _hr = raw_Navigate(browsername, url);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline long IFEBrowserEngine2::GetHWND ( _bstr_t browsername ) {
+    long _result = 0;
+    HRESULT _hr = raw_GetHWND(browsername, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long IFEBrowserEngine2::IsOpen ( _bstr_t browsername ) {
+    long _result = 0;
+    HRESULT _hr = raw_IsOpen(browsername, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT IFEBrowserEngine2::D3DRender ( int backbufferindex ) {
+    HRESULT _hr = raw_D3DRender(backbufferindex);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFEBrowserEngine2::D3DUpdate ( ) {
+    HRESULT _hr = raw_D3DUpdate();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline long IFEBrowserEngine2::GetUpdateRate ( _bstr_t browsername ) {
+    long _result = 0;
+    HRESULT _hr = raw_GetUpdateRate(browsername, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT IFEBrowserEngine2::SetUpdateRate ( _bstr_t browsername, long pVal ) {
+    HRESULT _hr = raw_SetUpdateRate(browsername, pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _bstr_t IFEBrowserEngine2::GetBadPageURL ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_BadPageURL(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IFEBrowserEngine2::PutBadPageURL ( _bstr_t pRate ) {
+    HRESULT _hr = put_BadPageURL(pRate);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IFEBrowserEngine2::GetLoadingPageURL ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_LoadingPageURL(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IFEBrowserEngine2::PutLoadingPageURL ( _bstr_t pRate ) {
+    HRESULT _hr = put_LoadingPageURL(pRate);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IFEBrowserEngine2::GetMouseFileName ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_MouseFileName(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IFEBrowserEngine2::PutMouseFileName ( _bstr_t pRate ) {
+    HRESULT _hr = put_MouseFileName(pRate);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IFEBrowserEngine2::GetMouseBusyFileName ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_MouseBusyFileName(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IFEBrowserEngine2::PutMouseBusyFileName ( _bstr_t pRate ) {
+    HRESULT _hr = put_MouseBusyFileName(pRate);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+//
+// interface IFEBrowserInstance2 wrapper method implementations
+//
+
+inline HRESULT IFEBrowserInstance2::Navigate ( _bstr_t url ) {
+    HRESULT _hr = raw_Navigate(url);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _variant_t IFEBrowserInstance2::RequestURL ( const _variant_t & requesttype, _bstr_t url, _bstr_t formdata, _bstr_t extradata, const _variant_t & callback ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_RequestURL(requesttype, url, formdata, extradata, callback, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline HRESULT IFEBrowserInstance2::CloseBrowser ( ) {
+    HRESULT _hr = raw_CloseBrowser();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _variant_t IFEBrowserInstance2::GetEngineVersion ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_EngineVersion(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline IDispatchPtr IFEBrowserInstance2::Getgameinterface ( ) {
+    IDispatch * _result = 0;
+    HRESULT _hr = get_gameinterface(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline _variant_t IFEBrowserInstance2::GetCommandLineArgs ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_CommandLineArgs(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline long IFEBrowserInstance2::GetIsReleaseBuild ( ) {
+    long _result = 0;
+    HRESULT _hr = get_IsReleaseBuild(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t IFEBrowserInstance2::GetInstallFolder ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_InstallFolder(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline long IFEBrowserInstance2::Gethwnd ( ) {
+    long _result = 0;
+    HRESULT _hr = get_hwnd(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long IFEBrowserInstance2::GetUpdateRate ( ) {
+    long _result = 0;
+    HRESULT _hr = get_UpdateRate(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IFEBrowserInstance2::PutUpdateRate ( long pRate ) {
+    HRESULT _hr = put_UpdateRate(pRate);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IFEBrowserInstance2::GetName ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IFEBrowserInstance2::GetSysInfo_OS ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_SysInfo_OS(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline long IFEBrowserInstance2::GetSysInfo_RAM ( ) {
+    long _result = 0;
+    HRESULT _hr = get_SysInfo_RAM(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t IFEBrowserInstance2::GetSysInfo_CPUType ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_SysInfo_CPUType(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline long IFEBrowserInstance2::GetSysInfo_CPUSpeed ( ) {
+    long _result = 0;
+    HRESULT _hr = get_SysInfo_CPUSpeed(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long IFEBrowserInstance2::GetSysInfo_XRes ( ) {
+    long _result = 0;
+    HRESULT _hr = get_SysInfo_XRes(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long IFEBrowserInstance2::GetSysInfo_YRes ( ) {
+    long _result = 0;
+    HRESULT _hr = get_SysInfo_YRes(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t IFEBrowserInstance2::GetSysInfo_VideoAdapter ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_SysInfo_VideoAdapter(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}

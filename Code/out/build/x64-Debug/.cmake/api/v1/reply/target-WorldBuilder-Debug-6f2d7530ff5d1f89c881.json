@@ -1,0 +1,1511 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Run/WorldBuilder_debug.exe"
+		},
+		{
+			"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Run/WorldBuilder_debug.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_options",
+			"target_link_directories",
+			"target_link_libraries",
+			"target_compile_options",
+			"target_compile_definitions",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"Tools/WorldBuilder/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 428,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 435,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 293,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 254,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 207,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 130,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 139,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-DWIN32 -D_DEBUG"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 6,
+					"define" : "EDITOR"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "REGEX_MALLOC"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "STDC_HEADERS"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "WIN32"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "WIN32_LEAN_AND_MEAN"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "_AFXDLL"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "_DEBUG"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "_MBCS"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "_WINDOWS"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "__PLACEMENT_VEC_NEW_INLINE"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../GameRenderer"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../Libraries/OpenAL/include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../Libraries/Source/WWVegas/Miles6/Include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/./include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/./res"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../gameengine/include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../gameenginedevice/include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/source/wwvegas"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/source/wwvegas/ww3d2"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/source/wwvegas/wwdebug"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/source/wwvegas/wwlib"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/source/wwvegas/wwmath"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/source/wwvegas/wwsaveload"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../Libraries/Source/Compression"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../res"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder"
+				}
+			],
+			"language" : "RC",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "/Od"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "/MDd"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "/Zi"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "/RTC1"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 6,
+					"define" : "EDITOR"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "REGEX_MALLOC"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "STDC_HEADERS"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "WIN32"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "WIN32_LEAN_AND_MEAN"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "_AFXDLL"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "_DEBUG"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "_MBCS"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "_WINDOWS"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "__PLACEMENT_VEC_NEW_INLINE"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../GameRenderer"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../Libraries/OpenAL/include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../Libraries/Source/WWVegas/Miles6/Include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/./include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/./res"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../gameengine/include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../gameenginedevice/include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/source/wwvegas"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/source/wwvegas/ww3d2"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/source/wwvegas/wwdebug"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/source/wwvegas/wwlib"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/source/wwvegas/wwmath"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../libraries/source/wwvegas/wwsaveload"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../../Libraries/Source/Compression"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder/../res"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/Tools/WorldBuilder"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				96,
+				97
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "GameEngine::@3f1430db303f85cff844"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "GameEngineDevice::@b5bf661acaf2bcda6841"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "GameRenderer::@e71774a1c47f01feb3dd"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "Compression::@94c6c6d57acc3b4ff305"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "WWDebug::@03917fa1d891aec73558"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "WWDownload::@136554194a27cdf33128"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "ww3d2::@7a9b64e938c31da0d22e"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "wwsaveload::@4c4f44dbb9ca2528b35e"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "wwmath::@d09afc813e20f197e03b"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "wwlib::@22145f2b52c0917150eb"
+		}
+	],
+	"id" : "WorldBuilder::@e729bbfba381c7d62c8f",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:windows",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/NODEFAULTLIB:libcd",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/DYNAMICBASE:NO",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/FORCE",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Tools\\WorldBuilder\\..\\..\\Libraries\\Source\\GameSpy\\bin\\x64\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Tools\\WorldBuilder\\..\\..\\Libraries\\OpenAL\\bin\\x64\\RelWithDebInfo\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Tools\\WorldBuilder\\..\\..\\Libraries\\Source\\WWVegas\\Miles6\\Libraries\\Win64\\DebugRelease\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Tools\\WorldBuilder\\..\\..\\Libraries\\DX90SDK\\Lib\\x64\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Tools\\WorldBuilder\\..\\..\\Libraries\\Lib\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Tools\\WorldBuilder\\..\\..\\GameEngine\\Lib\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Tools\\WorldBuilder\\..\\..\\GameEngineDevice\\Lib\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Tools\\WorldBuilder\\..\\..\\GameEngine\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-LIBPATH:\"D:\\zh mods\\generals next gen\\CnC_Generals_Zero_Hour\\Code\\Tools\\WorldBuilder\"",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "GameEngine\\GameEngineDebug.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "GameEngineDevice\\GameEngineDeviceDebug_x64.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "GameRenderer\\GameRenderer.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "Libraries\\Source\\Compression\\Compression.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "Libraries\\Source\\WWVegas\\WW3D2\\ww3d2.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "Libraries\\Source\\WWVegas\\WWDebug\\WWDebugDebug_x64.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "lib\\WWDownloadDebug_x64.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "lib\\WWLibdebug_x64.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "lib\\WWMathDebug_x64.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "lib\\WWSaveLoadDebug_x64.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "d3d12.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "openal32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "dxguid.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "dinput8.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "ddraw.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "d3dx9.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "d3d9.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "dxerr.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "winmm.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "vfw32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "dsound.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "wsock32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "imm32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "wininet.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "brigades/Debug/usbrigades.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "Chat/Debug/uschat.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "common/Debug/uscommon.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "Direct2Game/Debug/usd2g.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "gcdkey/Debug/uscdkey.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "ghttp/Debug/ushttp.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "GP/Debug/usgp.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "gstats/Debug/usstats.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "gt2/Debug/usgt2.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "natneg/Debug/usnatneg.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "Peer/Debug/uspeer.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "pinger/Debug/uspinger.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "pt/Debug/uspt.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "qr2/Debug/usqr2.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "sake/Debug/ussake.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "sc/Debug/ussc.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "serverbrowsing/Debug/usserverbrowsing.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "sharedDll/Debug/UniSpySDK.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "Voice2/Debug/usvoice2.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "Voice2/libgsm/Debug/gsm.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "Voice2/libspeex/Debug/speex.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "webservices/Debug/uswebservice.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "WorldBuilder",
+	"nameOnDisk" : "WorldBuilder_debug.exe",
+	"paths" : 
+	{
+		"build" : "Tools/WorldBuilder",
+		"source" : "Tools/WorldBuilder"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				96,
+				97
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Tools/WorldBuilder/res/WorldBuilder.rc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/addplayerdialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/AutoEdgeOutTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/BaseBuildProps.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/BlendEdgeTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/BlendMaterial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/BorderTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/brushoptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/BrushTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/BuildList.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/BuildListTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/CameraOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/CButtonShowColor.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/CellWidth.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/CFixTeamOwnerDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ContourOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/CUndoable.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/DrawObject.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/EditAction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/EditCondition.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/EditCoordParameter.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/EditGroup.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/EditObjectParameter.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/EditParameter.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/EulaDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ExportScriptsOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/EyedropperTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/FeatherOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/FeatherTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/FenceOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/FenceTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/FloodFillTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/GlobalLightOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/GroveOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/GroveTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/HandScrollTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ImpassableOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/LayersList.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/LightOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/MainFrm.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/mapobjectprops.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/MapPreview.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/MapSettings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/MeshMoldOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/MeshMoldTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/MoundOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/MoundTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/MyToolbar.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/NewHeightMap.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ObjectOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ObjectPreview.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ObjectTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/OpenMap.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/OptionsPanel.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/PickUnitDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/playerlistdlg.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/PointerTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/PolygonTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/propedit.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/RampOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/RampTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/RoadOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/RoadTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/SaveMap.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ScorchOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ScorchTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ScriptActionsFalse.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ScriptActionsTrue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ScriptConditions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ScriptDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ScriptProperties.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/SelectMacrotexture.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/ShadowOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/SplashScreen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/StdAfx.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/TeamBehavior.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/TeamGeneric.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/TeamIdentity.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/TeamReinforcement.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/teamsdialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/TerrainMaterial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/TerrainModal.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/TerrainSwatches.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/TileTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/Tool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/WaterOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/WaterTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/WaypointOptions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/WaypointTool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/WBFrameWnd.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/WBHeightMap.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/WBPopupSlider.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/wbview.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/wbview3d.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/WHeightMapEdit.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/WorldBuilder.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/WorldBuilderDoc.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "Tools/WorldBuilder/src/WorldBuilderView.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

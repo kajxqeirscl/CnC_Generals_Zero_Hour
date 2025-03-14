@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "Libraries/Source/WWVegas/WWDownload",
+		"source" : "Libraries/Source/WWVegas/WWDownload"
+	}
+}

@@ -1,0 +1,462 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "GameEngine",
+					"jsonFile" : "directory-GameEngine-Debug-0f8e2101cd8f5f733254.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "GameEngine",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "GameEngineDevice",
+					"jsonFile" : "directory-GameEngineDevice-Debug-c81448511175e64ae453.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "GameEngineDevice",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "GameRenderer",
+					"jsonFile" : "directory-GameRenderer-Debug-29cb926ff72a0fc5f5d5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "GameRenderer",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "Tools/WorldBuilder",
+					"jsonFile" : "directory-Tools.WorldBuilder-Debug-b85e37d60c2464aef7c4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 4,
+					"source" : "Tools/WorldBuilder",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "Libraries/Source/Compression",
+					"jsonFile" : "directory-Libraries.Source.Compression-Debug-dba11c489a997cd30e29.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 5,
+					"source" : "Libraries/Source/Compression",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "Libraries/Source/WWVegas/WW3D2",
+					"jsonFile" : "directory-Libraries.Source.WWVegas.WW3D2-Debug-e3d73794c9ab95e3ebc9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 6,
+					"source" : "Libraries/Source/WWVegas/WW3D2",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "Libraries/Source/WWVegas/WWDebug",
+					"jsonFile" : "directory-Libraries.Source.WWVegas.WWDebug-Debug-ce10e10ae771aa5c0559.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 7,
+					"source" : "Libraries/Source/WWVegas/WWDebug",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "Libraries/Source/WWVegas/WWDownload",
+					"jsonFile" : "directory-Libraries.Source.WWVegas.WWDownload-Debug-a43e42fe9c8bc876b20d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 8,
+					"source" : "Libraries/Source/WWVegas/WWDownload",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "Libraries/Source/WWVegas/WWLib",
+					"jsonFile" : "directory-Libraries.Source.WWVegas.WWLib-Debug-ce732bb36c7f8c94e43d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 9,
+					"source" : "Libraries/Source/WWVegas/WWLib",
+					"targetIndexes" : 
+					[
+						9
+					]
+				},
+				{
+					"build" : "Libraries/Source/WWVegas/WWMath",
+					"jsonFile" : "directory-Libraries.Source.WWVegas.WWMath-Debug-87f63f79bc48f6abee0e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 10,
+					"source" : "Libraries/Source/WWVegas/WWMath",
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"build" : "Libraries/Source/WWVegas/WWSaveLoad",
+					"jsonFile" : "directory-Libraries.Source.WWVegas.WWSaveLoad-Debug-af598f4164aaeeac41f1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 11,
+					"source" : "Libraries/Source/WWVegas/WWSaveLoad",
+					"targetIndexes" : 
+					[
+						11
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "RTS",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "GameEngine",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "GameEngineDevice",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "GameRenderer",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "WorldBuilder",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "Compression",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6
+					],
+					"name" : "ww3d2",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						7
+					],
+					"name" : "WWDebug",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						8
+					],
+					"name" : "WWDownload",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						9
+					],
+					"name" : "WWLib",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						9
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						10
+					],
+					"name" : "WWMath",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						11
+					],
+					"name" : "WWSaveLoad",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 5,
+					"id" : "Compression::@94c6c6d57acc3b4ff305",
+					"jsonFile" : "target-Compression-Debug-638dd5054b520d0568e2.json",
+					"name" : "Compression",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "GameEngine::@3f1430db303f85cff844",
+					"jsonFile" : "target-GameEngine-Debug-a785a36ae2cf89a236d1.json",
+					"name" : "GameEngine",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "GameEngineDevice::@b5bf661acaf2bcda6841",
+					"jsonFile" : "target-GameEngineDevice-Debug-ffb1bff36d598eea7d34.json",
+					"name" : "GameEngineDevice",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "GameRenderer::@e71774a1c47f01feb3dd",
+					"jsonFile" : "target-GameRenderer-Debug-d6182aad89e3340878f3.json",
+					"name" : "GameRenderer",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "RTS::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-RTS-Debug-1b9babf54d66de920baa.json",
+					"name" : "RTS",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "WWDebug::@03917fa1d891aec73558",
+					"jsonFile" : "target-WWDebug-Debug-686acacb22ee039270bc.json",
+					"name" : "WWDebug",
+					"projectIndex" : 7
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "WWDownload::@136554194a27cdf33128",
+					"jsonFile" : "target-WWDownload-Debug-628517d2a766af764b95.json",
+					"name" : "WWDownload",
+					"projectIndex" : 8
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "WorldBuilder::@e729bbfba381c7d62c8f",
+					"jsonFile" : "target-WorldBuilder-Debug-6f2d7530ff5d1f89c881.json",
+					"name" : "WorldBuilder",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "ww3d2::@7a9b64e938c31da0d22e",
+					"jsonFile" : "target-ww3d2-Debug-8b383b92e08b5613ed87.json",
+					"name" : "ww3d2",
+					"projectIndex" : 6
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "wwlib::@22145f2b52c0917150eb",
+					"jsonFile" : "target-wwlib-Debug-b80bdeb8a0d380325e5d.json",
+					"name" : "wwlib",
+					"projectIndex" : 9
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "wwmath::@d09afc813e20f197e03b",
+					"jsonFile" : "target-wwmath-Debug-791cd567677f61f6c632.json",
+					"name" : "wwmath",
+					"projectIndex" : 10
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "wwsaveload::@4c4f44dbb9ca2528b35e",
+					"jsonFile" : "target-wwsaveload-Debug-c79bb99c99dcb2d80718.json",
+					"name" : "wwsaveload",
+					"projectIndex" : 11
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code/out/build/x64-Debug",
+		"source" : "D:/zh mods/generals next gen/CnC_Generals_Zero_Hour/Code"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
