@@ -64,7 +64,15 @@ Int NXPTracker::getNXPValue(const Object* killer) const
 	//if( killer->getRelationship( m_parent ) == ALLIES )
 	//	return 0;
 
-	return m_parent->getTemplate()->getExperienceValue(0);
+	VeterancyLevel m_vetLevel = m_parent->getVeterancyLevel();
+	Int EXPToGive = m_parent->getTemplate()->getExperienceValue(m_vetLevel);
+	Int NXPToGive = m_currentNXP / 2;
+	if (EXPToGive >= NXPToGive) {
+		return EXPToGive;
+	}
+	else {
+		return NXPToGive;
+	}
 }
 
 //-------------------------------------------------------------------------------------------------

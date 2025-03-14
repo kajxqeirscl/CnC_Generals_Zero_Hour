@@ -405,7 +405,7 @@ Object::Object( const ThingTemplate *tt, ObjectStatusBits statusBits, Team *team
 	// If a valid team has been assigned me, then I have a Player I can ask about my starting level
 	const Player* controller = getControllingPlayer();
 	m_experienceTracker->setVeterancyLevel( controller->getProductionVeterancyLevel( getTemplate()->getName() ) );
-	m_NXPTracker->setNXPLevel(controller->getProductionVeterancyLevel(getTemplate()->getName()));
+	m_NXPTracker->setNXPLevel(0);
 
 	/// allow for inter-Module resolution
 	for (BehaviorModule** b = m_behaviors; *b; ++b)
@@ -2626,6 +2626,18 @@ void Object::scoreTheKill( const Object *victim )
 	// Do stuff that has nothing to do with experience points here, like tell our Player we killed something
 	/// @todo Multiplayer score hook location?
 
+	if (m_NXPTracker && m_NXPTracker->isAcceptingNXP())
+	{
+		// srj sez: per dustin, no experience (et al) for killing things under construction.
+		if (!victim->testStatus(OBJECT_STATUS_UNDER_CONSTRUCTION))
+		{
+			Int NXPValue = victim->getNXPTracker()->getNXPValue(this);
+			getNXPTracker()->addNXP(NXPValue);
+			//printf("\nAdded NXP: %i",NXPValue);
+			//TheScriptEngine->AppendDebugMessage("\nAdded NXP: ", false);
+		}
+	}
+
 	Player* victimController = victim->getControllingPlayer();
 	// if the other player is not a playable side (i.e. they are civilian, observer, whatever)
 	// we shouldn't count the kill.
@@ -2646,15 +2658,15 @@ void Object::scoreTheKill( const Object *victim )
 		victimController->getScoreKeeper()->addObjectLost(victim);
 	}
 
-	//Relationship r = getRelationship(victim);
-	//if (r != ENEMIES)
-	//	return;
+	Relationship r = getRelationship(victim);
+	if (r != ENEMIES)
+		return;
 
 	// Don't count kills that I do on my own buildings or units, cause thats just silly.
-	//if (controller == victimController)
-	//{
-	//	return;
-	//}
+	if (controller == victimController)
+	{
+		return;
+	}
 
 	if (controller)
 	{
@@ -2671,15 +2683,6 @@ void Object::scoreTheKill( const Object *victim )
 		{
 			Int experienceValue = victim->getExperienceTracker()->getExperienceValue( this );
 			getExperienceTracker()->addExperiencePoints( experienceValue );
-		}
-	}
-	if (m_NXPTracker && m_NXPTracker->isAcceptingNXP())
-	{
-		// srj sez: per dustin, no experience (et al) for killing things under construction.
-		if (!victim->testStatus(OBJECT_STATUS_UNDER_CONSTRUCTION))
-		{
-			Int NXPValue = victim->getNXPTracker()->getNXPValue(this);
-			getNXPTracker()->addNXP(NXPValue);
 		}
 	}
 }
@@ -2865,12 +2868,6 @@ void Object::onVeterancyLevelChanged( VeterancyLevel oldLevel, VeterancyLevel ne
 //-------------------------------------------------------------------------------------------------
 void Object::onNXPLevelChanged(Int oldLevel, Int newLevel)
 {
-	updateUpgradeModules();
-
-	const UpgradeTemplate* up = TheUpgradeCenter->findVeterancyUpgrade(LEVEL_HEROIC);
-	if (up)
-		giveUpgrade(up);
-
 	BodyModuleInterface* body = getBodyModule();
 	if (body)
 		body->onVeterancyLevelChanged(LEVEL_ELITE, LEVEL_HEROIC);
@@ -2881,43 +2878,6 @@ void Object::onNXPLevelChanged(Int oldLevel, Int newLevel)
 	Bool doAnimation = (!hideAnimationForStealth
 		&& (newLevel > oldLevel)
 		&& (!isKindOf(KINDOF_IGNORED_IN_GUI))); //First, we plan to do the animation if the level went up
-
-	switch (LEVEL_HEROIC)
-	{
-	case LEVEL_REGULAR:
-		clearWeaponSetFlag(WEAPONSET_VETERAN);
-		clearWeaponSetFlag(WEAPONSET_ELITE);
-		clearWeaponSetFlag(WEAPONSET_HERO);
-		clearWeaponBonusCondition(WEAPONBONUSCONDITION_VETERAN);
-		clearWeaponBonusCondition(WEAPONBONUSCONDITION_ELITE);
-		clearWeaponBonusCondition(WEAPONBONUSCONDITION_HERO);
-		doAnimation = FALSE;//... but not if somehow up to Regular
-		break;
-	case LEVEL_VETERAN:
-		setWeaponSetFlag(WEAPONSET_VETERAN);
-		clearWeaponSetFlag(WEAPONSET_ELITE);
-		clearWeaponSetFlag(WEAPONSET_HERO);
-		setWeaponBonusCondition(WEAPONBONUSCONDITION_VETERAN);
-		clearWeaponBonusCondition(WEAPONBONUSCONDITION_ELITE);
-		clearWeaponBonusCondition(WEAPONBONUSCONDITION_HERO);
-		break;
-	case LEVEL_ELITE:
-		clearWeaponSetFlag(WEAPONSET_VETERAN);
-		setWeaponSetFlag(WEAPONSET_ELITE);
-		clearWeaponSetFlag(WEAPONSET_HERO);
-		clearWeaponBonusCondition(WEAPONBONUSCONDITION_VETERAN);
-		setWeaponBonusCondition(WEAPONBONUSCONDITION_ELITE);
-		clearWeaponBonusCondition(WEAPONBONUSCONDITION_HERO);
-		break;
-	case LEVEL_HEROIC:
-		clearWeaponSetFlag(WEAPONSET_VETERAN);
-		clearWeaponSetFlag(WEAPONSET_ELITE);
-		setWeaponSetFlag(WEAPONSET_HERO);
-		clearWeaponBonusCondition(WEAPONBONUSCONDITION_VETERAN);
-		clearWeaponBonusCondition(WEAPONBONUSCONDITION_ELITE);
-		setWeaponBonusCondition(WEAPONBONUSCONDITION_HERO);
-		break;
-	}
 
 	if (doAnimation && TheGameLogic->getDrawIconUI())
 	{
@@ -3545,6 +3505,19 @@ void Object::crc( Xfer *xfer )
 		logString.concat(tmp);
 	}
 #endif // DEBUG_CRC
+	if (m_NXPTracker)
+		xfer->xferSnapshot(m_NXPTracker);
+#ifdef DEBUG_CRC
+	if (doLogging)
+	{
+		XferCRC tmpXfer;
+		tmpXfer.open("tmp");
+		tmpXfer.xferSnapshot(m_NXPTracker);
+		tmp.format("m_NXPTracker: %8.8X, ", tmpXfer.getCRC());
+		tmpXfer.close();
+		logString.concat(tmp);
+	}
+#endif // DEBUG_CRC
 
 	Real health = getBodyModule()->getHealth();
 	xfer->xferUser(&health,														sizeof(health));
@@ -3738,6 +3711,9 @@ void Object::xfer( Xfer *xfer )
 
 	// experience tracker
 	xfer->xferSnapshot( m_experienceTracker );
+
+	// NXP tracker
+	xfer->xferSnapshot(m_NXPTracker);
 
 	//
 	// we do not need to do anything with our m_containedBy pointer, the post process
