@@ -2750,7 +2750,7 @@ void Drawable::drawUIText()
 			auto numeralString = TheDisplayStringManager->getGroupNumeralString(digitValue);
 
 			// Draw each digit at an adjusted position
-			numeralString->draw(newXPos, yPos, color,
+			numeralString->draw(newXPos, yPos+digitSpacing, color,
 				TheDrawGroupInfo->m_colorForTextDropShadow,
 				TheDrawGroupInfo->m_dropShadowOffsetX,
 				TheDrawGroupInfo->m_dropShadowOffsetY);

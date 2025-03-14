@@ -59,6 +59,8 @@ public:
 	void setNXPAndLevel(Int NXPIn);
 	void setNXPSink(ObjectID sink);											///< My experience actually goes to this person (loose couple)
 
+	ObjectID getNXPSink();
+
 	Real getNXPScalar() const { return m_NXPScalar; }
 	void setNXPScalar(Real scalar) { m_NXPScalar = scalar; }
 

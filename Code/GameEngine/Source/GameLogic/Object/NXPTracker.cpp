@@ -94,6 +94,12 @@ void NXPTracker::setNXPSink(ObjectID sink)
 }
 
 //-------------------------------------------------------------------------------------------------
+ObjectID NXPTracker::getNXPSink()
+{
+	return m_NXPSink;
+}
+
+//-------------------------------------------------------------------------------------------------
 // Set Level to AT LEAST this... if we are already >= this level, do nothing.
 void NXPTracker::setMinNXPLevel(Int newLevel)
 {

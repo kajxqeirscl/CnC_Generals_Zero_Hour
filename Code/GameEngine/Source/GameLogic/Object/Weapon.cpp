@@ -57,6 +57,7 @@
 
 #include "GameLogic/Damage.h"
 #include "GameLogic/ExperienceTracker.h"
+#include "GameLogic/NXPTracker.h"
 #include "GameLogic/GameLogic.h"
 #include "GameLogic/AIPathfind.h"
 #include "GameLogic/Module/BehaviorModule.h"
@@ -1276,6 +1277,22 @@ void WeaponTemplate::dealDamageInternal(ObjectID sourceID, ObjectID victimID, co
 						break;
 					}
 				}
+			}
+
+			if (source->getNXPTracker() != nullptr) {
+				auto nxpTracker = source->getNXPTracker();
+				auto nxpSinkObject = TheGameLogic->findObjectByID(nxpTracker->getNXPSink());
+
+				// If the sink is null or the object is its own sink, use the source's own NXP level
+				int nxpLevel = (nxpSinkObject && nxpSinkObject->getNXPTracker())
+					? nxpSinkObject->getNXPTracker()->getNXPLevel()
+					: nxpTracker->getNXPLevel();
+
+				Real NXPDamageMultiplier = pow(1.1f, static_cast<Real>(nxpLevel));
+				std::string debugMessage = "\nNXPDamageMultiplier: " + std::to_string(NXPDamageMultiplier) + "\n";
+				OutputDebugStringA(debugMessage.c_str());
+
+				damageInfo.in.m_amount *= NXPDamageMultiplier;
 			}
 
 			curVictim->attemptDamage(&damageInfo);
@@ -2759,6 +2776,7 @@ void Weapon::processRequestAssistance( const Object *requestingObject, Object *v
 	projectile->setTransformMatrix(&worldTransform);
 	projectile->setPosition(&worldPos);
 	projectile->getExperienceTracker()->setExperienceSink( launcher->getID() );
+	projectile->getNXPTracker()->setNXPSink(launcher->getID());
 
 	const PhysicsBehavior* launcherPhys = launcher->getPhysics();
 	PhysicsBehavior* missilePhys = projectile->getPhysics();
