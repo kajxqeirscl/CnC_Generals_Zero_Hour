@@ -254,17 +254,19 @@ void NXPTracker::xfer(Xfer* xfer)
 	// no need to save the m_parent pointer, it is connected on allocation time
 	// m_parent
 
-	// current level
-	xfer->xferUser(&m_currentLevel, sizeof(Int));
+	if (currentVersion >= 1) { //nxp save load
+		// current level
+		xfer->xferUser(&m_currentLevel, sizeof(Int));
 
-	// current experience
-	xfer->xferInt(&m_currentNXP);
+		// current experience
+		xfer->xferInt(&m_currentNXP);
 
-	// experience sink
-	xfer->xferObjectID(&m_NXPSink);
+		// experience sink
+		xfer->xferObjectID(&m_NXPSink);
 
-	// experience scalar
-	xfer->xferReal(&m_NXPScalar);
+		// experience scalar
+		xfer->xferReal(&m_NXPScalar);
+	}
 
 }  // end xfer
 

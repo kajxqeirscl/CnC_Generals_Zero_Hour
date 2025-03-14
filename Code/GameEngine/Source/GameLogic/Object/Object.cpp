@@ -3571,13 +3571,14 @@ void Object::crc( Xfer *xfer )
 	* 5: m_isReceivingDifficultyBonus
 	* 6: We do indeed need to save m_containedBy.  The comment misrepresents what the contain module will do.
 	* 7: save full mtx, not pos+orient.
+	* 8: nxp 
 	*/
 //-------------------------------------------------------------------------------------------------
 void Object::xfer( Xfer *xfer )
 {
 	
 	// version
-	const XferVersion currentVersion = 7;
+	const XferVersion currentVersion = 8;
 	XferVersion version = currentVersion;
 	xfer->xferVersion( &version, currentVersion );
 
@@ -3712,8 +3713,10 @@ void Object::xfer( Xfer *xfer )
 	// experience tracker
 	xfer->xferSnapshot( m_experienceTracker );
 
-	// NXP tracker
-	xfer->xferSnapshot(m_NXPTracker);
+	if (version >= 8) {
+		// NXP tracker
+		xfer->xferSnapshot(m_NXPTracker);
+	}
 
 	//
 	// we do not need to do anything with our m_containedBy pointer, the post process
