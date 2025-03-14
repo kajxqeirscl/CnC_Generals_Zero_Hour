@@ -2870,7 +2870,7 @@ void Object::onNXPLevelChanged(Int oldLevel, Int newLevel)
 {
 	BodyModuleInterface* body = getBodyModule();
 	if (body) {
-		body->onVeterancyLevelChanged(LEVEL_ELITE, LEVEL_HEROIC);
+		//body->onVeterancyLevelChanged(LEVEL_ELITE, LEVEL_HEROIC);
 		for (Int i = 1; i <= newLevel - oldLevel; i++)
 			body->applyDamageScalar(0.9f);
 	}
