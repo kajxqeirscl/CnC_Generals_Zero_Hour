@@ -49,6 +49,7 @@
 #include "Common/Xfer.h"
 
 #include "GameLogic/ExperienceTracker.h"
+#include "GameLogic/NXPTracker.h"
 #include "GameLogic/GameLogic.h"		// for logic frame count
 #include "GameLogic/Object.h"
 #include "GameLogic/Locomotor.h"
@@ -2287,15 +2288,19 @@ static Bool computeHealthRegion( const Drawable *draw, IRegion2D& region )
 
 Bool Drawable::drawsAnyUIText( void )
 {
-	if (!isSelected()) 
-		return FALSE;
-
 	const Object *obj = getObject();
 	if ( !obj || !obj->isLocallyControlled() )  
 		return FALSE;
 
 	Player *owner = obj->getControllingPlayer();
 	Int groupNum = owner->getSquadNumberForObject(obj);
+	Int NXPNum = obj->getNXPTracker()->getCurrentNXP();
+
+	if (NXPNum > 0)
+		return TRUE;
+
+	if (!isSelected())
+		return FALSE;
 
 	if (groupNum > NO_HOTKEY_SQUAD && groupNum < NUM_HOTKEY_SQUADS ) 
 		return TRUE;
@@ -2682,10 +2687,12 @@ void Drawable::drawUIText()
 
 	Player *owner = obj->getControllingPlayer();
 	Int groupNum = owner->getSquadNumberForObject(obj);
+	Int NXPNum = obj->getNXPTracker()->getCurrentNXP();
+	Int NXPLevel = obj->getNXPTracker()->getNXPLevel();
 
 	Color color = TheDrawGroupInfo->m_usePlayerColor ? owner->getPlayerColor() : TheDrawGroupInfo->m_colorForText;
 
-	if (groupNum > NO_HOTKEY_SQUAD && groupNum < NUM_HOTKEY_SQUADS ) 
+	if (groupNum > NO_HOTKEY_SQUAD && groupNum < NUM_HOTKEY_SQUADS && isSelected())
 	{
 		Int xPos = healthBarRegion->lo.x;
 		Int yPos = healthBarRegion->lo.y;
@@ -2710,9 +2717,71 @@ void Drawable::drawUIText()
 												TheDrawGroupInfo->m_dropShadowOffsetX, 
 												TheDrawGroupInfo->m_dropShadowOffsetY);
 	}
+	if (NXPNum > 0)
+	{
+		int xPos = healthBarRegion->hi.x;
+		int yPos = healthBarRegion->lo.y;
+
+		if (TheDrawGroupInfo->m_usingPixelOffsetX) {
+			xPos -= TheDrawGroupInfo->m_pixelOffsetX;
+		}
+		else {
+			xPos -= (healthBarRegion->width() * TheDrawGroupInfo->m_percentOffsetX);
+		}
+
+		if (TheDrawGroupInfo->m_usingPixelOffsetY) {
+			yPos += TheDrawGroupInfo->m_pixelOffsetY;
+		}
+		else {
+			yPos += (healthBarRegion->width() * TheDrawGroupInfo->m_percentOffsetY);
+		}
+
+		// Convert the number to a string
+		std::string numStr = std::to_string(NXPNum);
+		std::string numStrLevel = std::to_string(NXPLevel);
+		int digitSpacing = 10; // Adjust spacing as needed
+		int newXPos = xPos;
+
+		for (char digit : numStr) {
+			// Convert digit to integer
+			int digitValue = digit - '0';
+
+			// Get the numeral string for the individual digit
+			auto numeralString = TheDisplayStringManager->getGroupNumeralString(digitValue);
+
+			// Draw each digit at an adjusted position
+			numeralString->draw(newXPos, yPos, color,
+				TheDrawGroupInfo->m_colorForTextDropShadow,
+				TheDrawGroupInfo->m_dropShadowOffsetX,
+				TheDrawGroupInfo->m_dropShadowOffsetY);
+
+			// Move xPos for the next digit
+			newXPos += digitSpacing;
+		}
+
+		newXPos = xPos;
+
+		for (char digit : numStrLevel) {
+			// Convert digit to integer
+			int digitValue = digit - '0';
+
+			// Get the numeral string for the individual digit
+			auto numeralString = TheDisplayStringManager->getGroupNumeralString(digitValue);
+
+			// Draw each digit at an adjusted position
+			numeralString->draw(newXPos, yPos-digitSpacing, color,
+				TheDrawGroupInfo->m_colorForTextDropShadow,
+				TheDrawGroupInfo->m_dropShadowOffsetX,
+				TheDrawGroupInfo->m_dropShadowOffsetY);
+
+			// Move xPos for the next digit
+			newXPos += digitSpacing;
+		}
+	}
 
 
-	if ( obj->getFormationID() != NO_FORMATION_ID )
+
+	if ( obj->getFormationID() != NO_FORMATION_ID && isSelected())
 	{
 		//draw an F, here
 		Coord3D p;

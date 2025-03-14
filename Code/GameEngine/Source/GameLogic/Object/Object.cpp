@@ -58,6 +58,7 @@
 #include "GameLogic/AI.h"
 #include "GameLogic/AIPathfind.h"
 #include "GameLogic/ExperienceTracker.h"
+#include "GameLogic/NXPTracker.h"
 #include "GameLogic/FiringTracker.h"
 #include "GameLogic/GameLogic.h"
 #include "GameLogic/Locomotor.h"
@@ -190,6 +191,7 @@ Object::Object( const ThingTemplate *tt, ObjectStatusBits statusBits, Team *team
 	m_prev(NULL),
 	m_team(NULL),
 	m_experienceTracker(NULL),
+	m_NXPTracker(NULL),
 	m_firingTracker(NULL),
 	m_repulsorHelper(NULL),
 	m_smcHelper(NULL),
@@ -398,10 +400,12 @@ Object::Object( const ThingTemplate *tt, ObjectStatusBits statusBits, Team *team
 
 	// allocate experience tracker
 	m_experienceTracker = newInstance(ExperienceTracker)(this);
+	m_NXPTracker = newInstance(NXPTracker)(this);
 
 	// If a valid team has been assigned me, then I have a Player I can ask about my starting level
 	const Player* controller = getControllingPlayer();
 	m_experienceTracker->setVeterancyLevel( controller->getProductionVeterancyLevel( getTemplate()->getName() ) );
+	m_NXPTracker->setNXPLevel(0);
 
 	/// allow for inter-Module resolution
 	for (BehaviorModule** b = m_behaviors; *b; ++b)
@@ -579,6 +583,11 @@ Object::~Object()
 		m_experienceTracker->deleteInstance();
 
 	m_experienceTracker = NULL;
+
+	if (m_NXPTracker)
+		m_NXPTracker->deleteInstance();
+
+	m_NXPTracker = NULL;
 
 	// we don't need to delete these, there were deleted on the m_behaviors list
 	m_firingTracker = NULL;
@@ -2617,6 +2626,18 @@ void Object::scoreTheKill( const Object *victim )
 	// Do stuff that has nothing to do with experience points here, like tell our Player we killed something
 	/// @todo Multiplayer score hook location?
 
+	if (m_NXPTracker && m_NXPTracker->isAcceptingNXP())
+	{
+		// srj sez: per dustin, no experience (et al) for killing things under construction.
+		if (!victim->testStatus(OBJECT_STATUS_UNDER_CONSTRUCTION))
+		{
+			Int NXPValue = victim->getNXPTracker()->getNXPValue(this);
+			getNXPTracker()->addNXP(NXPValue);
+			//printf("\nAdded NXP: %i",NXPValue);
+			//TheScriptEngine->AppendDebugMessage("\nAdded NXP: ", false);
+		}
+	}
+
 	Player* victimController = victim->getControllingPlayer();
 	// if the other player is not a playable side (i.e. they are civilian, observer, whatever)
 	// we shouldn't count the kill.
@@ -2840,6 +2861,46 @@ void Object::onVeterancyLevelChanged( VeterancyLevel oldLevel, VeterancyLevel ne
 		AudioEventRTS soundToPlay = TheAudio->getMiscAudio()->m_unitPromoted;	
 		soundToPlay.setObjectID( getID() );
 		TheAudio->addAudioEvent( &soundToPlay );
+	}
+
+}
+
+//-------------------------------------------------------------------------------------------------
+void Object::onNXPLevelChanged(Int oldLevel, Int newLevel)
+{
+	BodyModuleInterface* body = getBodyModule();
+	if (body) {
+		//body->onVeterancyLevelChanged(LEVEL_ELITE, LEVEL_HEROIC);
+		for (Int i = 1; i <= newLevel - oldLevel; i++)
+			body->applyDamageScalar(0.9f);
+	}
+
+
+	Bool hideAnimationForStealth = (!isLocallyControlled() && testStatus(OBJECT_STATUS_STEALTHED));
+
+	Bool doAnimation = (!hideAnimationForStealth
+		&& (newLevel > oldLevel)
+		&& (!isKindOf(KINDOF_IGNORED_IN_GUI))); //First, we plan to do the animation if the level went up
+
+	if (doAnimation && TheGameLogic->getDrawIconUI())
+	{
+		if (TheAnim2DCollection && TheGlobalData->m_levelGainAnimationName.isEmpty() == FALSE)
+		{
+			Anim2DTemplate* animTemplate = TheAnim2DCollection->findTemplate(TheGlobalData->m_levelGainAnimationName);
+
+			Coord3D pos = *getPosition();
+			pos.add(&m_healthBoxOffset);
+
+			TheInGameUI->addWorldAnimation(animTemplate,
+				&pos,
+				WORLD_ANIM_FADE_ON_EXPIRE,
+				TheGlobalData->m_levelGainAnimationDisplayTimeInSeconds,
+				TheGlobalData->m_levelGainAnimationZRisePerSecond);
+		}
+
+		AudioEventRTS soundToPlay = TheAudio->getMiscAudio()->m_unitPromoted;
+		soundToPlay.setObjectID(getID());
+		TheAudio->addAudioEvent(&soundToPlay);
 	}
 
 }
@@ -3162,6 +3223,15 @@ void Object::updateObjValuesFromMapProperties(Dict* properties)
 		}
 	}
 
+	// set the NXP level
+	valInt = properties->getInt(TheKey_objectVeterancy, &exists);
+	if (exists) {
+		if (m_NXPTracker && m_NXPTracker->isTrainable())
+		{
+			m_NXPTracker->setNXPLevel(valInt);
+		}
+	}
+
 	// set the aggressiveness/mood
 	valInt = properties->getInt(TheKey_objectAggressiveness, &exists);
 	if (exists) {
@@ -3438,6 +3508,19 @@ void Object::crc( Xfer *xfer )
 		logString.concat(tmp);
 	}
 #endif // DEBUG_CRC
+	if (m_NXPTracker)
+		xfer->xferSnapshot(m_NXPTracker);
+#ifdef DEBUG_CRC
+	if (doLogging)
+	{
+		XferCRC tmpXfer;
+		tmpXfer.open("tmp");
+		tmpXfer.xferSnapshot(m_NXPTracker);
+		tmp.format("m_NXPTracker: %8.8X, ", tmpXfer.getCRC());
+		tmpXfer.close();
+		logString.concat(tmp);
+	}
+#endif // DEBUG_CRC
 
 	Real health = getBodyModule()->getHealth();
 	xfer->xferUser(&health,														sizeof(health));
@@ -3491,13 +3574,14 @@ void Object::crc( Xfer *xfer )
 	* 5: m_isReceivingDifficultyBonus
 	* 6: We do indeed need to save m_containedBy.  The comment misrepresents what the contain module will do.
 	* 7: save full mtx, not pos+orient.
+	* 8: nxp 
 	*/
 //-------------------------------------------------------------------------------------------------
 void Object::xfer( Xfer *xfer )
 {
 	
 	// version
-	const XferVersion currentVersion = 7;
+	const XferVersion currentVersion = 8;
 	XferVersion version = currentVersion;
 	xfer->xferVersion( &version, currentVersion );
 
@@ -3631,6 +3715,11 @@ void Object::xfer( Xfer *xfer )
 
 	// experience tracker
 	xfer->xferSnapshot( m_experienceTracker );
+
+	if (version >= 8) {
+		// NXP tracker
+		xfer->xferSnapshot(m_NXPTracker);
+	}
 
 	//
 	// we do not need to do anything with our m_containedBy pointer, the post process

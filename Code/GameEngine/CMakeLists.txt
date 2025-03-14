@@ -559,7 +559,7 @@ add_library(GameEngine STATIC
     Source/GameNetwork/User.cpp
     Source/GameNetwork/WOLBrowser/WebBrowser.cpp
     Source/Precompiled/PreRTS.cpp
-)
+ "Include/GameLogic/NXPTracker.h" "Source/GameLogic/Object/NXPTracker.cpp")
 
 #------------------------------------------------------------------------------
 # Replicate the configuration-specific compile definitions, includes, runtime library, etc.
