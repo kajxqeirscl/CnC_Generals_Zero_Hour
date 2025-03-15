@@ -1279,21 +1279,30 @@ void WeaponTemplate::dealDamageInternal(ObjectID sourceID, ObjectID victimID, co
 				}
 			}
 
-			if (source->getNXPTracker() != nullptr) {
-				auto nxpTracker = source->getNXPTracker();
-				auto nxpSinkObject = TheGameLogic->findObjectByID(nxpTracker->getNXPSink());
+			source = TheGameLogic->findObjectByID(damageInfo.in.m_sourceID);
 
-				// If the sink is null or the object is its own sink, use the source's own NXP level
-				int nxpLevel = (nxpSinkObject && nxpSinkObject->getNXPTracker())
-					? nxpSinkObject->getNXPTracker()->getNXPLevel()
-					: nxpTracker->getNXPLevel();
+			Real NXPDamageMultiplier = 1.0f; // Default multiplier (no change to damage)
 
-				Real NXPDamageMultiplier = pow(1.1f, static_cast<Real>(nxpLevel));
-				std::string debugMessage = "\nNXPDamageMultiplier: " + std::to_string(NXPDamageMultiplier) + "\n";
-				OutputDebugStringA(debugMessage.c_str());
-
-				damageInfo.in.m_amount *= NXPDamageMultiplier;
+			if (!source) {
+				OutputDebugStringA("Error: Source object is nullptr! Defaulting NXPDamageMultiplier to 1.0.\n");
 			}
+			else {
+				auto nxpTracker = source->getNXPTracker();
+				if (!nxpTracker) {
+					OutputDebugStringA("Warning: Source has no NXPTracker, using default damage multiplier.\n");
+				}
+				else {
+					int nxpLevel = nxpTracker->getNXPLevel();
+					NXPDamageMultiplier = pow(1.1f, static_cast<double>(nxpLevel));
+
+					std::string debugMessage = "\nNXPDamageMultiplier: " + std::to_string(NXPDamageMultiplier) + "\n";
+					OutputDebugStringA(debugMessage.c_str());
+				}
+			}
+
+			// Apply damage multiplier (default is 1.0f if something was nullptr)
+			damageInfo.in.m_amount *= NXPDamageMultiplier;
+
 
 			curVictim->attemptDamage(&damageInfo);
 			//DEBUG_ASSERTLOG(damageInfo.out.m_noEffect, ("WeaponTemplate::dealDamageInternal: dealt to %s %08lx: attempted %f, actual %f (%f)\n",

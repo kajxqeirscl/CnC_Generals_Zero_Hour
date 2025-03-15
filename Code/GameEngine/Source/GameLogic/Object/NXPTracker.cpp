@@ -61,8 +61,8 @@ NXPTracker::~NXPTracker()
 Int NXPTracker::getNXPValue(const Object* killer) const
 {
 	// No experience for killing an ally, cheater.
-	if( killer->getRelationship( m_parent ) == ALLIES )
-		return 0;
+	//if( killer->getRelationship( m_parent ) == ALLIES )
+	//	return 0;
 
 	VeterancyLevel m_vetLevel = m_parent->getVeterancyLevel();
 	Int EXPToGive = m_parent->getTemplate()->getExperienceValue(m_vetLevel);
