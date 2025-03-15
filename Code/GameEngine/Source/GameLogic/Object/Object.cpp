@@ -2626,18 +2626,6 @@ void Object::scoreTheKill( const Object *victim )
 	// Do stuff that has nothing to do with experience points here, like tell our Player we killed something
 	/// @todo Multiplayer score hook location?
 
-	if (m_NXPTracker && m_NXPTracker->isAcceptingNXP())
-	{
-		// srj sez: per dustin, no experience (et al) for killing things under construction.
-		if (!victim->testStatus(OBJECT_STATUS_UNDER_CONSTRUCTION))
-		{
-			Int NXPValue = victim->getNXPTracker()->getNXPValue(this);
-			getNXPTracker()->addNXP(NXPValue);
-			//printf("\nAdded NXP: %i",NXPValue);
-			//TheScriptEngine->AppendDebugMessage("\nAdded NXP: ", false);
-		}
-	}
-
 	Player* victimController = victim->getControllingPlayer();
 	// if the other player is not a playable side (i.e. they are civilian, observer, whatever)
 	// we shouldn't count the kill.
@@ -2683,6 +2671,16 @@ void Object::scoreTheKill( const Object *victim )
 		{
 			Int experienceValue = victim->getExperienceTracker()->getExperienceValue( this );
 			getExperienceTracker()->addExperiencePoints( experienceValue );
+		}
+	}
+
+	if (m_NXPTracker && m_NXPTracker->isAcceptingNXP())
+	{
+		// srj sez: per dustin, no experience (et al) for killing things under construction.
+		if (!victim->testStatus(OBJECT_STATUS_UNDER_CONSTRUCTION))
+		{
+			Int NXPValue = victim->getNXPTracker()->getNXPValue(this);
+			getNXPTracker()->addNXP(NXPValue);
 		}
 	}
 }

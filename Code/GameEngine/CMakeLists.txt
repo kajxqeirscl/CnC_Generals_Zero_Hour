@@ -361,6 +361,7 @@ add_library(GameEngine STATIC
     Source/GameLogic/Object/Die/SpecialPowerCompletionDie.cpp
     Source/GameLogic/Object/Die/UpgradeDie.cpp
     Source/GameLogic/Object/ExperienceTracker.cpp
+    Source/GameLogic/Object/NXPTracker.cpp
     Source/GameLogic/Object/FiringTracker.cpp
     Source/GameLogic/Object/GhostObject.cpp
     Source/GameLogic/Object/Helper/ObjectDefectionHelper.cpp
