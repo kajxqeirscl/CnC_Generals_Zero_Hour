@@ -44,11 +44,11 @@
 
 //-------------------------------------------------------------------------------------------------
 NXPTracker::NXPTracker(Object* parent) :
-	m_parent(parent),
-	m_currentLevel(0),
-	m_NXPSink(INVALID_ID),
-	m_NXPScalar(1.0f),
-	m_currentNXP(0) // Added By Sadullah Nader
+    m_parent(parent),
+    m_currentLevel(0),
+    m_NXPSink(INVALID_ID),
+    m_NXPScalar(1.0f),
+    m_currentNXP(0) // Added By Sadullah Nader
 {
 }
 
@@ -60,225 +60,167 @@ NXPTracker::~NXPTracker()
 //-------------------------------------------------------------------------------------------------
 Int NXPTracker::getNXPValue(const Object* killer) const
 {
-	// No experience for killing an ally, cheater.
-	//if( killer->getRelationship( m_parent ) == ALLIES )
-	//	return 0;
-
-	VeterancyLevel m_vetLevel = m_parent->getVeterancyLevel();
-	Int EXPToGive = m_parent->getTemplate()->getExperienceValue(m_vetLevel);
-	Int NXPToGive = m_currentNXP / 2;
-	if (EXPToGive >= NXPToGive) {
-		return EXPToGive;
-	}
-	else {
-		return NXPToGive;
-	}
+    VeterancyLevel m_vetLevel = m_parent->getVeterancyLevel();
+    Int EXPToGive = m_parent->getTemplate()->getExperienceValue(m_vetLevel);
+    Int NXPToGive = m_currentNXP / 2;
+    return (EXPToGive >= NXPToGive) ? EXPToGive : NXPToGive;
 }
 
 //-------------------------------------------------------------------------------------------------
 Bool NXPTracker::isTrainable() const
 {
-	return m_parent->getTemplate()->isTrainable();
+    return m_parent->getTemplate()->isTrainable();
 }
 
 //-------------------------------------------------------------------------------------------------
 Bool NXPTracker::isAcceptingNXP() const
 {
-	return isTrainable() || (m_NXPSink != INVALID_ID);
+    return isTrainable() || (m_NXPSink != INVALID_ID);
 }
 
 //-------------------------------------------------------------------------------------------------
 void NXPTracker::setNXPSink(ObjectID sink)
 {
-	m_NXPSink = sink;
+    m_NXPSink = sink;
 }
 
 //-------------------------------------------------------------------------------------------------
 ObjectID NXPTracker::getNXPSink() const
 {
-	return m_NXPSink;
+    return m_NXPSink;
 }
 
 //-------------------------------------------------------------------------------------------------
-// Set Level to AT LEAST this... if we are already >= this level, do nothing.
 void NXPTracker::setMinNXPLevel(Int newLevel)
 {
-	// This does not check for IsTrainable, because this function is for explicit setting,
-	// so the setter is assumed to know what they are doing.  The game function
-	// of addExperiencePoints cares about Trainability.
-	if (m_currentLevel < newLevel)
-	{
-		Int oldLevel = m_currentLevel;
-		m_currentLevel = newLevel;
-		m_currentNXP = 100 * newLevel;//m_parent->getTemplate()->getExperienceRequired(m_currentLevel); //Minimum for this level
-		if (m_parent)
-			m_parent->onNXPLevelChanged(oldLevel, newLevel);
-	}
+    if (m_currentLevel < newLevel)
+    {
+        Int oldLevel = m_currentLevel;
+        m_currentLevel = newLevel;
+        m_currentNXP = static_cast<Int>(100 * pow(1.3, newLevel - 1));
+        if (m_parent)
+            m_parent->onNXPLevelChanged(oldLevel, newLevel);
+    }
 }
 
 //-------------------------------------------------------------------------------------------------
 void NXPTracker::setNXPLevel(Int newLevel)
 {
-	// This does not check for IsTrainable, because this function is for explicit setting,
-	// so the setter is assumed to know what they are doing.  The game function
-	// of addExperiencePoints cares about Trainability, if flagged thus.
-	if (m_currentLevel != newLevel)
-	{
-		Int oldLevel = m_currentLevel;
-		m_currentLevel = newLevel;
-		m_currentNXP = 100 * newLevel;//m_parent->getTemplate()->getExperienceRequired(m_currentLevel); //Minimum for this level
-		if (m_parent)
-			m_parent->onNXPLevelChanged(oldLevel, newLevel);
-	}
+    if (m_currentLevel != newLevel)
+    {
+        Int oldLevel = m_currentLevel;
+        m_currentLevel = newLevel;
+        m_currentNXP = static_cast<Int>(100 * pow(1.3, newLevel - 1));
+        if (m_parent)
+            m_parent->onNXPLevelChanged(oldLevel, newLevel);
+    }
 }
 
 //-------------------------------------------------------------------------------------------------
 Bool NXPTracker::gainNXPForLevel(Int levelsToGain, Bool canScaleForBonus)
 {
-	Int newLevel = (Int)m_currentLevel + levelsToGain;
-	// gain what levels we can, even if we can't use 'em all
-	if (newLevel > m_currentLevel)
-	{
-		Int experienceNeeded = 100 * newLevel - m_currentNXP;
-		addNXP(experienceNeeded, canScaleForBonus);
-		return true;
-	}
-	return false;
+    Int newLevel = m_currentLevel + levelsToGain;
+    if (newLevel > m_currentLevel)
+    {
+        Int experienceNeeded = static_cast<Int>(100 * pow(1.3, newLevel - 1)) - m_currentNXP;
+        addNXP(experienceNeeded, canScaleForBonus);
+        return true;
+    }
+    return false;
 }
 
 //-------------------------------------------------------------------------------------------------
 Bool NXPTracker::canGainNXPForLevel(Int levelsToGain) const
 {
-	Int newLevel = (Int)m_currentLevel + levelsToGain;
-	// return true if we can gain levels, even if we can't gain ALL the levels requested
-	return (newLevel > m_currentLevel);
+    Int newLevel = m_currentLevel + levelsToGain;
+    return (newLevel > m_currentLevel);
 }
 
 //-------------------------------------------------------------------------------------------------
 void NXPTracker::addNXP(Int experienceGain, Bool canScaleForBonus)
 {
-	if (m_NXPSink != INVALID_ID)
-	{
-		// I have been set up to give my experience to someone else
-		Object* sinkPointer = TheGameLogic->findObjectByID(m_NXPSink);
-		if (sinkPointer)
-		{
-			// Not a fatal failure if not valid, he died when I was in the air.
-			sinkPointer->getNXPTracker()->addNXP(experienceGain * m_NXPScalar, canScaleForBonus);
-			return;
-		}
-	}
+    if (m_NXPSink != INVALID_ID)
+    {
+        Object* sinkPointer = TheGameLogic->findObjectByID(m_NXPSink);
+        if (sinkPointer)
+        {
+            sinkPointer->getNXPTracker()->addNXP(experienceGain * m_NXPScalar, canScaleForBonus);
+            return;
+        }
+    }
+    if (!isTrainable()) return;
 
-	if (!isTrainable())
-		return; //safety
+    Int oldLevel = m_currentLevel;
+    Int amountToGain = canScaleForBonus ? experienceGain * m_NXPScalar : experienceGain;
+    m_currentNXP += amountToGain;
 
-	Int oldLevel = m_currentLevel;
+    Int levelIndex = 0;
+    while (m_currentNXP >= static_cast<Int>(100 * pow(1.3, levelIndex)))
+    {
+        levelIndex++;
+    }
+    m_currentLevel = levelIndex;
 
-	Int amountToGain = experienceGain;
-	if (canScaleForBonus)
-		amountToGain *= m_NXPScalar;
-
-
-	m_currentNXP += amountToGain;
-
-	Int levelIndex = 0;
-	while (m_currentNXP >= 100 * levelIndex)
-	{
-		// If there is a higher level to qualify for, and I qualify for it, advance the index
-		levelIndex++;
-	}
-
-	m_currentLevel = levelIndex-1;
-
-	if (oldLevel != m_currentLevel)
-	{
-		// Edge trigger special level gain effects.
-		m_parent->onNXPLevelChanged(oldLevel, m_currentLevel);
-	}
-
+    if (oldLevel != m_currentLevel)
+    {
+        m_parent->onNXPLevelChanged(oldLevel, m_currentLevel);
+    }
 }
+
 //-------------------------------------------------------------------------------------------------
 void NXPTracker::setNXPAndLevel(Int experienceIn)
 {
-	if (m_NXPSink != INVALID_ID)
-	{
-		// I have been set up to give my experience to someone else
-		Object* sinkPointer = TheGameLogic->findObjectByID(m_NXPSink);
-		if (sinkPointer)
-		{
-			// Not a fatal failure if not valid, he died when I was in the air.
-			sinkPointer->getNXPTracker()->setNXPAndLevel(experienceIn);
-			return;
-		}
-	}
+    if (m_NXPSink != INVALID_ID)
+    {
+        Object* sinkPointer = TheGameLogic->findObjectByID(m_NXPSink);
+        if (sinkPointer)
+        {
+            sinkPointer->getNXPTracker()->setNXPAndLevel(experienceIn);
+            return;
+        }
+    }
+    if (!isTrainable()) return;
 
-	if (!isTrainable())
-		return; //safety
+    Int oldLevel = m_currentLevel;
+    m_currentNXP = experienceIn;
 
-	Int oldLevel = m_currentLevel;
+    Int levelIndex = 0;
+    while (m_currentNXP >= static_cast<Int>(100 * pow(1.3, levelIndex)))
+    {
+        levelIndex++;
+    }
+    m_currentLevel = levelIndex;
 
-	m_currentNXP = experienceIn;
-
-	Int levelIndex = 0;
-	while (m_currentNXP >= 100 * levelIndex)
-	{
-		// If there is a higher level to qualify for, and I qualify for it, advance the index
-		levelIndex++;
-	}
-
-	m_currentLevel = levelIndex-1;
-
-	if (oldLevel != m_currentLevel)
-	{
-		// Edge trigger special level gain effects.
-		m_parent->onNXPLevelChanged(oldLevel, m_currentLevel); //<<== paradox! this may be a level lost!
-	}
-
+    if (oldLevel != m_currentLevel)
+    {
+        m_parent->onNXPLevelChanged(oldLevel, m_currentLevel);
+    }
 }
 
-//-----------------------------------------------------------------------------
+//----------------------------------------------------------------------------- 
 void NXPTracker::crc(Xfer* xfer)
 {
-	xfer->xferInt(&m_currentNXP);
-	xfer->xferUser(&m_currentLevel, sizeof(Int));
-}  // end crc
+    xfer->xferInt(&m_currentNXP);
+    xfer->xferUser(&m_currentLevel, sizeof(Int));
+}
 
-//-----------------------------------------------------------------------------
-/** Xfer method
-	* Version Info:
-	* 1: Initial version
-	*/
-	// ----------------------------------------------------------------------------
+//----------------------------------------------------------------------------- 
 void NXPTracker::xfer(Xfer* xfer)
 {
+    XferVersion currentVersion = 1;
+    XferVersion version = currentVersion;
+    xfer->xferVersion(&version, currentVersion);
 
-	// version
-	XferVersion currentVersion = 1;
-	XferVersion version = currentVersion;
-	xfer->xferVersion(&version, currentVersion);
+    if (currentVersion >= 1) {
+        xfer->xferUser(&m_currentLevel, sizeof(Int));
+        xfer->xferInt(&m_currentNXP);
+        xfer->xferObjectID(&m_NXPSink);
+        xfer->xferReal(&m_NXPScalar);
+    }
+}
 
-	// no need to save the m_parent pointer, it is connected on allocation time
-	// m_parent
-
-	if (currentVersion >= 1) { //nxp save load
-		// current level
-		xfer->xferUser(&m_currentLevel, sizeof(Int));
-
-		// current experience
-		xfer->xferInt(&m_currentNXP);
-
-		// experience sink
-		xfer->xferObjectID(&m_NXPSink);
-
-		// experience scalar
-		xfer->xferReal(&m_NXPScalar);
-	}
-
-}  // end xfer
-
-//-----------------------------------------------------------------------------
+//----------------------------------------------------------------------------- 
 void NXPTracker::loadPostProcess(void)
 {
-
-}  // end loadPostProcess
+}
 
