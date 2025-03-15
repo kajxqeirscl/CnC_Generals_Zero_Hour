@@ -43,6 +43,12 @@
 #endif
 
 //-------------------------------------------------------------------------------------------------
+Int NXPTracker::calculateExperienceForLevel(Int level) const
+{
+    return static_cast<Int>(100 * pow(1.3, level - 1));
+}
+
+//-------------------------------------------------------------------------------------------------
 NXPTracker::NXPTracker(Object* parent) :
     m_parent(parent),
     m_currentLevel(0),
@@ -97,7 +103,7 @@ void NXPTracker::setMinNXPLevel(Int newLevel)
     {
         Int oldLevel = m_currentLevel;
         m_currentLevel = newLevel;
-        m_currentNXP = static_cast<Int>(100 * pow(1.3, newLevel - 1));
+        m_currentNXP = calculateExperienceForLevel(newLevel);
         if (m_parent)
             m_parent->onNXPLevelChanged(oldLevel, newLevel);
     }
@@ -110,7 +116,7 @@ void NXPTracker::setNXPLevel(Int newLevel)
     {
         Int oldLevel = m_currentLevel;
         m_currentLevel = newLevel;
-        m_currentNXP = static_cast<Int>(100 * pow(1.3, newLevel - 1));
+        m_currentNXP = calculateExperienceForLevel(newLevel);
         if (m_parent)
             m_parent->onNXPLevelChanged(oldLevel, newLevel);
     }
@@ -122,7 +128,7 @@ Bool NXPTracker::gainNXPForLevel(Int levelsToGain, Bool canScaleForBonus)
     Int newLevel = m_currentLevel + levelsToGain;
     if (newLevel > m_currentLevel)
     {
-        Int experienceNeeded = static_cast<Int>(100 * pow(1.3, newLevel - 1)) - m_currentNXP;
+        Int experienceNeeded = calculateExperienceForLevel(newLevel) - m_currentNXP;
         addNXP(experienceNeeded, canScaleForBonus);
         return true;
     }
@@ -155,7 +161,7 @@ void NXPTracker::addNXP(Int experienceGain, Bool canScaleForBonus)
     m_currentNXP += amountToGain;
 
     Int levelIndex = 0;
-    while (m_currentNXP >= static_cast<Int>(100 * pow(1.3, levelIndex)))
+    while (m_currentNXP >= calculateExperienceForLevel(levelIndex + 1))
     {
         levelIndex++;
     }
@@ -185,7 +191,7 @@ void NXPTracker::setNXPAndLevel(Int experienceIn)
     m_currentNXP = experienceIn;
 
     Int levelIndex = 0;
-    while (m_currentNXP >= static_cast<Int>(100 * pow(1.3, levelIndex)))
+    while (m_currentNXP >= calculateExperienceForLevel(levelIndex + 1))
     {
         levelIndex++;
     }
@@ -196,6 +202,7 @@ void NXPTracker::setNXPAndLevel(Int experienceIn)
         m_parent->onNXPLevelChanged(oldLevel, m_currentLevel);
     }
 }
+
 
 //----------------------------------------------------------------------------- 
 void NXPTracker::crc(Xfer* xfer)

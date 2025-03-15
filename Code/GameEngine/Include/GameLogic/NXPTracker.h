@@ -60,7 +60,7 @@ public:
 	void setNXPSink(ObjectID sink);											///< My experience actually goes to this person (loose couple)
 
 	ObjectID getNXPSink() const;
-
+	Int calculateExperienceForLevel(Int level) const;
 	Real getNXPScalar() const { return m_NXPScalar; }
 	void setNXPScalar(Real scalar) { m_NXPScalar = scalar; }
 
