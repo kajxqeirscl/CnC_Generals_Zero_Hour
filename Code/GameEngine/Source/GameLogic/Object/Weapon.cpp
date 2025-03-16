@@ -1284,19 +1284,19 @@ void WeaponTemplate::dealDamageInternal(ObjectID sourceID, ObjectID victimID, co
 			Real NXPDamageMultiplier = 1.0f; // Default multiplier (no change to damage)
 
 			if (!source) {
-				OutputDebugStringA("Error: Source object is nullptr! Defaulting NXPDamageMultiplier to 1.0.\n");
+				//OutputDebugStringA("Error: Source object is nullptr! Defaulting NXPDamageMultiplier to 1.0.\n");
 			}
 			else {
 				auto nxpTracker = source->getNXPTracker();
 				if (!nxpTracker) {
-					OutputDebugStringA("Warning: Source has no NXPTracker, using default damage multiplier.\n");
+					//OutputDebugStringA("Warning: Source has no NXPTracker, using default damage multiplier.\n");
 				}
 				else {
 					int nxpLevel = nxpTracker->getNXPLevel();
 					NXPDamageMultiplier = pow(1.1f, static_cast<double>(nxpLevel));
 
 					std::string debugMessage = "\nNXPDamageMultiplier: " + std::to_string(NXPDamageMultiplier) + "\n";
-					OutputDebugStringA(debugMessage.c_str());
+					//OutputDebugStringA(debugMessage.c_str());
 				}
 			}
 
